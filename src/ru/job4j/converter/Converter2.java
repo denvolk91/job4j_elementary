@@ -11,10 +11,6 @@ public class Converter2 {
     }
 
     public static void main(String[] args) {
-        int euro = rubleToEuro(140);
-        int dollar = rubleToDollar(130);
-        System.out.println("140 rubles are " + euro + " euro.");
-        System.out.println("120 rubles are " +dollar + " dollar.");
         int inE = 140;
         int inD = 120;
         int expected = 2;
