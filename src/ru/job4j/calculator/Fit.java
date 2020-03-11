@@ -2,7 +2,7 @@ package ru.job4j.calculator;
 
 public class Fit {
     public static double manWeight(double height) {
-        return (height-100) * 1.15;
+        return (height-110) * 1.15;
     }
 
 
@@ -11,9 +11,15 @@ public class Fit {
     }
 
     public static void main(String[] args) {
-        double man = Fit.manWeight(175);
-        double woman = Fit.womanWeight(150);
-        System.out.println("Man 100 is " + man);
-        System.out.println("Woman 110 is " + woman);
+        double inM = 175;
+        double inW = 160;
+        double expectedM = 74.75;
+        double expectedW = 57.49999999999999;
+
+        boolean passedM = expectedM == manWeight(inM);
+        boolean passedW = expectedW == womanWeight(inW);
+        System.out.println("Идеальный вес мужчины при росте 175 равен 74,75. Test result : " + passedM);
+        System.out.println("Идеальный вес женщины при росте 160 равен 57,5. Test result : " + passedW);
+
     }
 }
