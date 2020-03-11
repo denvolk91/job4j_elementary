@@ -14,7 +14,7 @@ public class Fit {
         double inM = 175;
         double inW = 160;
         double expectedM = 74.75;
-        double expectedW = 57.49999999999999;
+        double expectedW = 57.5;
 
         boolean passedM = expectedM == manWeight(inM);
         boolean passedW = expectedW == womanWeight(inW);
