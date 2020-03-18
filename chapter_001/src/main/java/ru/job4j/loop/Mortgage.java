@@ -6,11 +6,7 @@ public class Mortgage {
         double balance = amount;
         while (balance > 0 ){
             balance = ((balance + ((balance / 100) * percent)) - salary);
-            if(balance < 0){
-                year++;
-            } else {
-                year++;
-            }
+            year ++;
         }
         return year;
     }
