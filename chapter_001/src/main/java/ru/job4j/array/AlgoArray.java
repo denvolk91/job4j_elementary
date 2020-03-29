@@ -11,7 +11,7 @@ public class AlgoArray {
         array[2] = temp3and2;
         int temp5and4 = array[3];
         array[3] = array[4];
-        array[4] = temp5and4;// записываем в ячейку с индексом 3 значение временной переменной.
+        array[4] = temp5and4; // записываем в ячейку с индексом 3 значение временной переменной.
 
         for (int index = 0; index < array.length; index++) {
             System.out.println(array[index]);

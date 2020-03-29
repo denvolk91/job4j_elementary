@@ -4,9 +4,9 @@ public class Mortgage {
     public int year(int amount, int salary, double percent) {
         int year = 0;
         double balance = amount;
-        while (balance > 0 ){
+        while (balance > 0) {
             balance = ((balance + ((balance / 100) * percent)) - salary);
-            year ++;
+            year++;
         }
         return year;
     }

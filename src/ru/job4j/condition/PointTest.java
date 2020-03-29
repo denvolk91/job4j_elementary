@@ -8,7 +8,7 @@ import java.security.DrbgParameters;
 public class PointTest {
 
     @Test
-    public void distance(){
+    public void distance() {
         double x1 = 1;
         double x2 = 2;
         double y1 = 2;
