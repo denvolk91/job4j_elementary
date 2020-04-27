@@ -15,7 +15,7 @@ public class TriangleTest {
         Point c = new Point(2, 0);
         Triangle triangle = new Triangle(a, b, c);
         double out = triangle.area();
-        double expected = 0;
+        double expected = 2;
         Assert.assertEquals(expected, out, 0.1);
     }
 
@@ -26,7 +26,7 @@ public class TriangleTest {
         Point c = new Point(0, 3);
         Triangle triangle = new Triangle(a, b, c);
         double out = triangle.area();
-        double expected = 6;
+        double expected = 0.5;
         Assert.assertEquals(expected, out, 0.1);
     }
 }
