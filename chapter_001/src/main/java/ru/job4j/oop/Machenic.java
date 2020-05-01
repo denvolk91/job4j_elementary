@@ -2,8 +2,8 @@ package main.java.ru.job4j.oop;
 
 public class Machenic extends Engineer {
 
-    public String diagnostic;
-    public String carRepairs;
+    private String diagnostic;
+    private String carRepairs;
 
     public String getDiagnostic() {
         return diagnostic;

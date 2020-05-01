@@ -2,9 +2,9 @@ package main.java.ru.job4j.oop;
 
 public class Doctor extends Profession {
 
-    public String diagnose;
-    public String operation;
-    public String pacient;
+    private String diagnose;
+    private String operation;
+    private String pacient;
 
     public String getPacient() {
         return pacient;

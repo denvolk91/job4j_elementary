@@ -2,9 +2,9 @@ package main.java.ru.job4j.oop;
 
 public class Engineer extends Profession {
 
-    public String invention;
-    public String placeOfWork;
-    public String client;
+    private String invention;
+    private String placeOfWork;
+    private String client;
 
     public String getClient() {
         return client;

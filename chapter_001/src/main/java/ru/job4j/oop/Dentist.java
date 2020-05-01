@@ -2,7 +2,7 @@ package main.java.ru.job4j.oop;
 
 public class Dentist extends Doctor {
 
-    public String mouth;
+    private String mouth;
 
     public String getMouth() {
         return mouth;
