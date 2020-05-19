@@ -2,8 +2,8 @@ package main.java.ru.job4j.oop;
 
 public class Builder extends Engineer {
 
-    public String project;
-    public String build;
+    private String project;
+    private String build;
 
     public String getProject() {
         return project;
