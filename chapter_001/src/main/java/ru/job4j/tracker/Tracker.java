@@ -38,7 +38,6 @@ public class Tracker {
      * Метод возвращает копию массива items без null эллеиентов.
      * @return itemsWithoutNull массив без null
      */
-
     public Item[] findAll() {
         Item[] itemsWithoutNull = new Item[items.length];
         for (int i = 0; i < items.length; i++) {
@@ -52,14 +51,41 @@ public class Tracker {
         return itemsWithoutNull;
     }
 
+    /**
+     * Метод проверяет в цикле все эллементы массива item, сравнивая name с аргументом key.
+     * Элементы, у которых совпадает name, копирует в результативный массив и возвращает в его.
+     * @param key получение списка по имени.
+     * @return массив совпавших имён.
+     */
     public Item[] findByName(String key) {
         Item[] itemsWithoutEquals = new Item[items.length];
 
         for (int i = 0; i < items.length; i++) {
-            itemsWithoutEquals.
-            if (itemsWithoutEquals.getName().equals(key)) {
-
+            if (items[i].getName().equals(key)) {
+                itemsWithoutEquals[position] = items[i];
+                position++;
             }
+            itemsWithoutEquals = Arrays.copyOf(itemsWithoutEquals, position);
         }
+        return itemsWithoutEquals;
+    }
+
+    /**
+     * Метод проверяет в цикле все эллементы массива items, сравнивая id с аргументом String id
+     * и возвращает найденный Item. Если не найдет, то null.
+     * @param id получение заявки.
+     * @return найденное совпадение или null.
+     */
+    public Item findById(String id) {
+        Item[] idByItems = new Item[items.length];
+        for (int i = 0; i < items.length; i++) {
+            if (items[i].getId().equals(id)) {
+                idByItems[position] = items[i];
+            } else {
+                idByItems[position] = null;
+            }
+            position++;
+        }
+        return idByItems[position];
     }
 }
