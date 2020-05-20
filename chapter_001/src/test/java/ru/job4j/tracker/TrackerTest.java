@@ -15,4 +15,16 @@ public class TrackerTest {
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
     }
+
+    @Test
+    public void itemsWithoutNullTest() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("test1");
+        Item itemNull = new Item(null);
+        tracker.add(item);
+        tracker.add(itemNull);
+        Item[] result = tracker.findAll();
+        Item[] provided = {item};
+        assertThat(result, is(provided));
+    }
 }
