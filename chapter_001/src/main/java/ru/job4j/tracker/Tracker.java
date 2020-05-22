@@ -39,16 +39,7 @@ public class Tracker {
      * @return itemsWithoutNull массив без null
      */
     public Item[] findAll() {
-        Item[] itemsWithoutNull = new Item[items.length];
-        for (int i = 0; i < items.length; i++) {
-            Item itemBuf = items[i];
-            if (itemBuf != null) {
-                itemsWithoutNull[position] = itemBuf;
-                position++;
-            }
-            itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, position);
-        }
-        return itemsWithoutNull;
+        return Arrays.copyOf(items, position);
     }
 
     /**
@@ -58,16 +49,15 @@ public class Tracker {
      * @return массив совпавших имён.
      */
     public Item[] findByName(String key) {
-        Item[] itemsWithoutEquals = new Item[items.length];
-
-        for (int i = 0; i < items.length; i++) {
+        Item[] itemsWithoutEquals = new Item[position];
+        int size = 0;
+        for (int i = 0; i < position; i++) {
             if (items[i].getName().equals(key)) {
-                itemsWithoutEquals[position] = items[i];
-                position++;
+                itemsWithoutEquals[size] = items[i];
+                size++;
             }
-            itemsWithoutEquals = Arrays.copyOf(itemsWithoutEquals, position);
         }
-        return itemsWithoutEquals;
+        return Arrays.copyOf(itemsWithoutEquals, size);
     }
 
     /**
@@ -77,15 +67,13 @@ public class Tracker {
      * @return найденное совпадение или null.
      */
     public Item findById(String id) {
-        Item[] idByItems = new Item[items.length];
-        for (int i = 0; i < items.length; i++) {
+        Item item = null;
+        for (int i = 0; i < position; i++) {
             if (items[i].getId().equals(id)) {
-                idByItems[position] = items[i];
-            } else {
-                idByItems[position] = null;
+                item = items[i];
+                break;
             }
-            position++;
         }
-        return idByItems[position];
+        return item;
     }
 }
