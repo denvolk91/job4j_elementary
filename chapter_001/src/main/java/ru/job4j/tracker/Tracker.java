@@ -36,10 +36,19 @@ public class Tracker {
 
     /**
      * Метод возвращает копию массива items без null эллеиентов.
-     * @return массив без null
+     * @return itemsWithoutNull массив без null
      */
     public Item[] findAll() {
-        return Arrays.copyOf(items, position);
+        Item[] itemsWithoutNull = new Item[items.length];
+        for (int i = 0; i < items.length; i++) {
+            Item itemBuf = items[i];
+            if (itemBuf != null) {
+                itemsWithoutNull[position] = itemBuf;
+                position++;
+            }
+            itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, position);
+        }
+        return itemsWithoutNull;
     }
 
     /**
@@ -49,14 +58,14 @@ public class Tracker {
      * @return массив совпавших имён.
      */
     public Item[] findByName(String key) {
-        Item[] itemsWithoutEquals = new Item[position];
-        int size = 0;
-        for (int i = 0; i < position; i++) {
+        Item[] itemsWithoutEquals = new Item[items.length];
+
+        for (int i = 0; i < items.length; i++) {
             if (items[i].getName().equals(key)) {
-                itemsWithoutEquals[size] = items[i];
-                size++;
+                itemsWithoutEquals[position] = items[i];
+                position++;
             }
-            itemsWithoutEquals = Arrays.copyOf(itemsWithoutEquals, size);
+            itemsWithoutEquals = Arrays.copyOf(itemsWithoutEquals, position);
         }
         return itemsWithoutEquals;
     }
@@ -68,13 +77,15 @@ public class Tracker {
      * @return найденное совпадение или null.
      */
     public Item findById(String id) {
-        Item item = null;
-        for (int i = 0; i < position; i++) {
+        Item[] idByItems = new Item[items.length];
+        for (int i = 0; i < items.length; i++) {
             if (items[i].getId().equals(id)) {
-                item = items[i];
-                break;
+                idByItems[position] = items[i];
+            } else {
+                idByItems[position] = null;
             }
+            position++;
         }
-        return item;
+        return idByItems[position];
     }
 }

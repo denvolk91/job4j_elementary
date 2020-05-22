@@ -24,7 +24,7 @@ public class TrackerTest {
         tracker.add(item);
         tracker.add(itemNull);
         Item[] result = tracker.findAll();
-        Item[] provided = {item, itemNull};
+        Item[] provided = {item};
         assertThat(result, is(provided));
     }
 }
