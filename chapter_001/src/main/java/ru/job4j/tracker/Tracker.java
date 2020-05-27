@@ -1,19 +1,15 @@
 package main.java.ru.job4j.tracker;
-
 import java.util.Arrays;
 import java.util.Random;
-
 public class Tracker {
     /**
      * Массив для хранения заявок.
      */
     private final Item[] items = new Item[100];
-
     /**
      * Указатель ячейки для новой заявки.
      */
     private int position = 0;
-
     /**
      * Метод добавления заявки в хранилище
      * @param item новая заявка
@@ -23,7 +19,6 @@ public class Tracker {
         items[position++] = item;
         return item;
     }
-
     /**
      * Метод генерирует уникальный ключ для заявки.
      * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
@@ -33,11 +28,11 @@ public class Tracker {
         Random rm = new Random();
         return String.valueOf(rm.nextLong() + System.currentTimeMillis());
     }
-
     /**
      * Метод возвращает копию массива items без null эллеиентов.
      * @return itemsWithoutNull массив без null
      */
+
     public Item[] findAll() {
         return Arrays.copyOf(items, position);
     }
@@ -53,8 +48,8 @@ public class Tracker {
         int size = 0;
         for (int i = 0; i < position; i++) {
             if (items[i].getName().equals(key)) {
-                itemsWithoutEquals[size] = items[i];
-                size++;
+                    itemsWithoutEquals[size] = items[i];
+                    size++;
             }
         }
         return Arrays.copyOf(itemsWithoutEquals, size);
@@ -72,7 +67,6 @@ public class Tracker {
         // Если индекс найден возвращаем item, иначе null
         return index != -1 ? items[index] : null;
     }
-
     /**
      * Метод возвращает index по id.
      * @param id запрос ячейки
@@ -88,7 +82,6 @@ public class Tracker {
         }
         return rsl;
     }
-
     /**
      * Метод для замены заявки, т.е. удалить заявку,
      * которая уже есть всистеме и добавить в эту ячейку новую.
