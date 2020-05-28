@@ -103,22 +103,15 @@ public class Tracker {
     /**
      * Метод удаляет ячейку по id и сжимает массив.
      * @param id найденная ячейка.
-     * @return отсортированный массив.
+     * @return массив с удалённой ячейкой.
      */
     public boolean delete(String id) {
         boolean rsl = false;
-        Item[] source;
-        Item[] dist;
         int index = indexOf(id);
         if (index != -1) {
-            source = items;
-            int startPos = index + 1;
-            dist = source;
-            int distPos = index;
-            int size = position - index;
             items[position - 1] = null;
             position--;
-            System.arraycopy(source, startPos, dist, distPos, size);
+            System.arraycopy(items, index + 1, items, index, position - index);
             rsl = true;
         }
         return rsl;
