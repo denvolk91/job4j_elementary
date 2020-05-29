@@ -110,8 +110,8 @@ public class Tracker {
         int index = indexOf(id);
         if (index != -1) {
             System.arraycopy(items, index + 1, items, index, position - index);
-            position--;
             items[position - 1] = null;
+            position--;
             rsl = true;
         }
         return rsl;
