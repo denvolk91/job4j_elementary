@@ -27,7 +27,7 @@ public class Shop {
             }
         }
 
-        System.out.println();
+        /*System.out.println();
         System.out.println("Удаляем значение из ячейки с индексом 1");
         //удаляем значение из ячейки с индексом 1
         products[1] = null;
@@ -57,11 +57,18 @@ public class Shop {
             } else {
                 System.out.println("null");
             }
-        }
+        }*/
         System.out.println();
         System.out.println("Смещаем все элементы массива влево");
-
-            System.out.println(shop.delete(products, 1));
-
+        shop.delete(products, 1);
+        for (int i = 0; i < products.length; i++) {
+            Product product = products[i];
+            //проверяем, что объект не равен null. тк у нас массив не заполнен целиком.
+            if (product != null) {
+                System.out.println(product.getName());
+            } else {
+                System.out.println("null");
+            }
+        }
     }
 }
