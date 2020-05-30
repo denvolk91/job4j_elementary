@@ -17,7 +17,15 @@ public class StartUI {
                 tracker.add(item);
             } else if (select == 1) {
                 System.out.println("=== Отображение всех заявок ===");
-                System.out.println(tracker.findAll());
+                Item[] item = tracker.findAll();
+                if (item.length == 0) {
+                    System.out.println("Список заявок пуст");
+                } else {
+                    System.out.println("Список на " + item.length + " заявок(ки)");
+                    for (int i = 0; i < item.length; i++) {
+                        System.out.println(item[i]);
+                    }
+                }
             } else if (select == 2) {
                 System.out.println("=== Замена заявки в старую ячейку ===");
                 System.out.print("ВВедите номер заявки которую хотите заменить: ");
@@ -27,35 +35,41 @@ public class StartUI {
                 Item newItem = new Item(newName);
                 if (tracker.replace(id, newItem)) {
                     System.out.println("Успешная замена");
-                    run = true;
                 } else {
                     System.out.println("Ошибка! Замена имя заявки которую хотите изменить не найдено.");
-                    run = false;
                 }
             } else if (select == 3) {
                 System.out.println("=== Удалите заявку ===");
                 System.out.print("Введите имя заявки которую хотите удалить: ");
-                String name = scanner.nextLine();
-                Item item = new Item(name);
-                String id = item.getId();
-                if (tracker.delete(id)) {
-                    System.out.println("Успешное удаление");
+                String nameId = scanner.nextLine();
+                if (tracker.delete(nameId)) {
+                    System.out.print("Успешное удаление");
                 } else {
-                    System.out.println("Ошибка! Введеное имя заявки не существует.");
-                    run = false;
+                    System.out.print("Ошибка. Неверное имя заявки");
                 }
             } else if (select == 4) {
                 System.out.println("=== Поиск заявки по номеру ===");
-                System.out.print("Введите ");
+                System.out.print("Введите номер заявки: ");
                 String id = scanner.nextLine();
-                Item item = new Item(id);
-                tracker.findById(item.getId());
-                System.out.println(item.getName());
+                Item rsl = tracker.findById(id);
+                if (rsl == null) {
+                    System.out.println("Неверный номер заявки");
+                } else {
+                    System.out.println(id);
+                }
             } else if (select == 5) {
                 System.out.println("=== Поиск списка заявок по совпавшим именам ===");
                 System.out.print("Введите имя для получения списка: ");
                 String name = scanner.nextLine();
-                System.out.println(tracker.findByName(name));
+                Item[] item = tracker.findByName(name);
+                if (item.length == 0) {
+                    System.out.println("Список заявок пуст");
+                } else {
+                    System.out.println("Список на " + item.length + " заявок(ки)");
+                    for (int i = 0; i < item.length; i++) {
+                        System.out.println(item[i]);
+                    }
+                }
             } else if (select == 6) {
                 run = false;
             }
