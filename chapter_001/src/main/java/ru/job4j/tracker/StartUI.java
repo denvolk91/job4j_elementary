@@ -55,7 +55,7 @@ public class StartUI {
                 if (rsl == null) {
                     System.out.println("Неверный номер заявки");
                 } else {
-                    System.out.println(id);
+                    System.out.println(rsl);
                 }
             } else if (select == 5) {
                 System.out.println("=== Поиск списка заявок по совпавшим именам ===");
