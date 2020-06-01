@@ -83,7 +83,7 @@ public class StartUI {
             } else if (select == 3) {
                 StartUI.deleteItem(input, tracker);
             } else if (select == 4) {
-               StartUI.findByIdItem(input, tracker);
+                StartUI.findByIdItem(input, tracker);
             } else if (select == 5) {
                 StartUI.findByNameItem(input, tracker);
             } else if (select == 6) {
