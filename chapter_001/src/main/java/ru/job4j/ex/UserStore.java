@@ -17,9 +17,12 @@ public class UserStore {
 
     public static boolean validate(User user) throws UserInvalidException {
         boolean valUser = true;
-        if (user.isValid() || user.getUsername().length() < 3) {
+        if (user.isValid()) {
             valUser = false;
-            throw new UserInvalidException("Пользователь не валиден!");
+            throw new UserInvalidException("Пользователь невалиден!");
+        } else if (user.getUsername().length() < 3) {
+            valUser = false;
+            throw new UserInvalidException("Имя пользователя меньше 3-х символов!");
         }
         return valUser;
     }
